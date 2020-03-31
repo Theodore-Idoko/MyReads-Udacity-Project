@@ -5,7 +5,7 @@ import Book from '../Book';
 
 class CurrentShelf extends Component {
   render () {
-    console.log(this.props.bookList)
+    
     return (
       <div className="list-books">
             <div className="list-books-title">
@@ -17,9 +17,16 @@ class CurrentShelf extends Component {
                   <h2 className="bookshelf-title">Currently Reading</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                        <li>
-                          <Book />
-                        </li>
+                    {
+                      this.props.bookList
+                       .filter(book => book.shelf ===
+                         'currentlyReading')
+                         .map(book => (
+                           <li key={book.id}>
+                             <Book />
+                          </li>
+                       ))
+                    }
                       
                     </ol>
                   </div>
