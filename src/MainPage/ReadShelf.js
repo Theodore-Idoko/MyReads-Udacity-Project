@@ -20,6 +20,7 @@ class ReadShelf extends Component {
                     <Book 
                     book={book} 
                     changeShelf={changeShelf}
+                   
                     />
                   </li>
                 ))

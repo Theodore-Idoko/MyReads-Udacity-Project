@@ -1,8 +1,8 @@
 import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
-//import SearchPage from './SearchPage'
-import CurrentShelf from './MainPage/CurrentShelf'
+import SearchPage from './SearchPage'
+//import CurrentShelf from './MainPage/CurrentShelf'
 
 class BooksApp extends React.Component {
   state = {
@@ -33,11 +33,11 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-          < CurrentShelf 
+          {/* < CurrentShelf 
           bookList={this.state.books}
           changeShelf ={this.changeShelf}
-          /> 
-          
+          />  */}
+          <SearchPage />
       </div>
     )
   }
