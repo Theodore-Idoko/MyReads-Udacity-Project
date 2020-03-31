@@ -9,6 +9,7 @@ class BooksApp extends React.Component {
     books: [],
     }
 
+    //ComponentDidMount is used to get  all the books from api
   componentDidMount() {
     BooksAPI.getAll()
       .then((books) => {
@@ -21,7 +22,7 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-          < CurrentShelf bookList={this.state.books}/>
+          < CurrentShelf bookList={this.state.books}/> 
       </div>
     )
   }

@@ -23,7 +23,7 @@ class CurrentShelf extends Component {
                          'currentlyReading')
                          .map(book => (
                            <li key={book.id}>
-                             <Book />
+                             <Book book={book}/>
                           </li>
                        ))
                     }
