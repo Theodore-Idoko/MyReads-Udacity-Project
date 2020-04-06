@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI'
 import Book from './Book';
+import { Link } from 'react-router-dom';
 
 
 class SearchPage extends Component {
@@ -33,12 +34,17 @@ class SearchPage extends Component {
 
   render() {
     const {query, search} = this.state
-
+    
+    
     
     return (
       <div className="search-books">
             <div className="search-books-bar">
-              <button className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</button>
+              <Link 
+              to='/'
+              className="close-search" >
+              Close
+              </Link>
               <div className="search-books-input-wrapper">
               <input
                 className='search-contacts'
@@ -54,13 +60,23 @@ class SearchPage extends Component {
             <div className="search-books-results">
               <ol className="books-grid">
                 {
-                  search.map(searches => (
-                    <li key={searches.id}>
+                  search.map(searches => {
+                    let shelf = 'none';
+
+                    this.props.books.map(book => (
+                      book.id === searches.id ?
+                      shelf = book.shelf : ''
+                    ))
+                    return (
+                      <li key={searches.id}>
                       <Book 
                         book= {searches}
+                        changeShelf ={this.props.changeShelf}
+                        currentShelf = {shelf}
                       />
                     </li>
-                  ))
+                    )
+                  })
                 }
               </ol>
             </div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import WantToReadShelf from './WantToReadShelf';
 import ReadShelf from './ReadShelf';
 import Book from '../Book';
+import { Link } from 'react-router-dom';
 
 class CurrentShelf extends Component {
   render () {
@@ -27,7 +28,7 @@ class CurrentShelf extends Component {
                              <Book 
                              book={book}
                              changeShelf={changeShelf}
-                             
+                             CurrentShelf = 'currentlyReading'
                              />
                           </li>
                        ))
@@ -46,8 +47,12 @@ class CurrentShelf extends Component {
                 />
                 </div>
                 </div>
-                <div className="open-search">
-                  <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
+                <div >
+                  <Link 
+                  to='/search'
+                  className="open-search"
+                  >Add a book
+                  </Link>
                 </div>
                 </div>
 
